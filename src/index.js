@@ -11,10 +11,10 @@ function putToysOnPage(toys) {
 	// const toyCollectionDiv = document.querySelector('#toy-collection')
 	toys.forEach(function(toy) {
 		toyCollectionDiv.innerHTML += `
-            <div class="card">
+            <div data-id="${toy.id}" class="card">
               <h2>${toy.name}</h2>
               <img src="${toy.image}" class="toy-avatar">
-              <p>${toy.likes} Likes<p>
+              <p>${toy.likes} Likes</p>
               <button class="like-btn">Like <3</button>
             </div>
         `

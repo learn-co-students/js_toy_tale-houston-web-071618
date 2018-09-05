@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 5
+      "likes": 9
     },
     {
       "id": 2,
@@ -57,25 +57,25 @@
     {
       "name": "document.querySelectorAll('.input-text')[0].value",
       "image": "document.querySelectorAll('.input-text')[1].value",
-      "likes": 0,
+      "likes": 1,
       "id": 10
     },
     {
       "name": "document.querySelectorAll('.input-text')[0].value",
       "image": "document.querySelectorAll('.input-text')[1].value",
-      "likes": 0,
+      "likes": 1,
       "id": 11
     },
     {
       "name": "name",
       "image": "https://cdn.shopify.com/s/files/1/0843/2781/products/derp_copy_large.png",
-      "likes": 0,
+      "likes": 1,
       "id": 12
     },
     {
       "name": "Derp",
       "image": "https://cdn.shopify.com/s/files/1/0843/2781/products/derp_copy_large.png",
-      "likes": 0,
+      "likes": 1,
       "id": 13
     }
   ]
