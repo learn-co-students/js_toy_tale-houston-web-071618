@@ -4,6 +4,7 @@ let addToy = false
 
 // add the toys to the page
 const parseJSON = resp => resp.json()
+const url = 'http://localhost:3000/toys'
 
 function putToysOnPage(toys) {
 	const toyCollectionDiv = document.getElementById('toy-collection')
@@ -20,7 +21,7 @@ function putToysOnPage(toys) {
 	})
 }
 
-fetch('http://localhost:3000/toys')
+fetch(url)
 	.then(parseJSON)
 	.then(putToysOnPage)
 
@@ -30,19 +31,44 @@ const addToyForm = document.querySelector('.add-toy-form')
 addToyForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  fetch('http://localhost:3000/toys', {
+  let data = {
+    name: document.querySelectorAll('.input-text')[0].value,
+    image: document.querySelectorAll('.input-text')[1].value,
+    likes: 0
+  }
+
+  fetch(url, {
     method: 'POST',
     headers: {
+      'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
-      "name": "Jessie",
-      "image": "https://vignette.wikia.nocookie.net/p__/images/8/88/Jessie_Toy_Story_3.png/revision/latest?cb=20161023024601&path-prefix=protagonist",
-      "likes": 0
-    })
+    body: JSON.stringify(data)
   })
     .then(parseJSON)
-    .then(console.log)
+    .then(putToysOnPage)
+})
+
+document.body.addEventListener('click', function increaseLikes(event) {
+  if (event.target.className === 'like-btn') {
+    let id = event.target.parentElement.dataset.id
+    let like = event.target.previousElementSibling
+    let likeCount = parseInt(event.target.previousElementSibling.innerText)
+    like.innerText = `${++likeCount} likes`
+
+
+    fetch(url + '/' + id, {
+      method: "PATCH",
+      headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+      body: JSON.stringify({likes: likeCount})
+    })
+      .then(parseJSON)
+      .then(console.log)
+    // console.log('clicked', event.target);
+  }
 })
 
 addBtn.addEventListener('click', () => {
@@ -58,10 +84,6 @@ addBtn.addEventListener('click', () => {
 
 
 // OR HERE!
-
-
-
-
 
 
 
