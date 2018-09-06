@@ -31,7 +31,7 @@ fetch("http://localhost:3000/toys") //returns a promise; get is implied
 
 function toyCard(toy) {
 	toyCollection.innerHTML += `
-		<div id="${toy.id}" class="card">
+		<div id="${toy.id}"class="card">
 			<h2>${toy.name}</h2>
 			<img src="${toy.image}" class="toy-avatar">
 			<p>${toy.likes} Likes</p>
@@ -63,16 +63,15 @@ function newToy(event) {
 //add likes
 function like(event) {
 	if (event.target.className === "like-btn") {
-		// console.log("clicked", event.target);
 
 		let id = event.target.id;
 		let liked = event.target.previousElementSibling;
 		let totalLikes = parseInt(event.target.previousElementSibling.innerText);
 		liked.innerHTML = `${++totalLikes} likes`
 
-		//save likes to db
+		// // save likes to db
 		fetch(`http://localhost:3000/toys/${id}`, {
-			method: "patch",
+			method: "PATCH",
 			body: JSON.stringify({
 				likes: totalLikes
 			}),
