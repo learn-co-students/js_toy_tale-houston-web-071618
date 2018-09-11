@@ -25,7 +25,7 @@ function putToysOnPage(toys) {
 
   toys.forEach(function (toy) {
     toyCollectionDiv.innerHTML += `
-			<div class="card">
+			<div class="card" data-id=${toy.id}>
         <h2>${toy.name}</h2>
         <img style="width: 100%" src="${toy.image}" class="toy-avatar" />
         <p>${toy.likes} Likes</p>
@@ -74,7 +74,6 @@ toyCollectionDiv.addEventListener('click', function (event) {
     let like = event.target.previousElementSibling
     let likeCount = parseInt(event.target.previousElementSibling.innerText)
     like.innerText = `${++likeCount} likes`
-    debugger
 
     fetch(toyUrl + '/' + id, {
       method: 'PATCH',
@@ -84,9 +83,10 @@ toyCollectionDiv.addEventListener('click', function (event) {
       body: JSON.stringify({
         "likes": likeCount
       })
-        .then(response => response.json())
-        .then(console.log)
+
     })
+      .then(response => response.json())
+      .then(console.log)
   }
 })
 
