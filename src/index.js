@@ -1,3 +1,11 @@
+//Questions for Michael:
+
+// I had a delay in finding method to complete the task of 'displaying the form when btn is clicked'.
+// How do you do an event listener when nothing has a value and always returns null?
+// What is your method for event delegation?
+// String interpolation inside a fetch method.
+
+
 const url = 'http://localhost:3000/toys'
 const parseJSON = response => response.json()
 const toyDiv = document.querySelector('#toy-collection')
@@ -21,29 +29,30 @@ function addToysToPage(toys) {
 }
 
 if (toyDiv) {
-toyDiv.addEventListener('click', increaseLikes)
+
+    toyDiv.addEventListener('click', increaseLikes)
 
 
-function increaseLikes(event) {
-  // debugger
-  let current_count = parseInt(event.target.parentElement.parentElement.children[2].innerText.split(" ")[0])
-      if(event.target.parentElement.parentElement.dataset.id === event.target.id) 
-          {
-          new_count = current_count+1
-          event.target.parentElement.previousElementSibling.innerText = `
-              ${new_count} Likes
-          `
-          fetch(url + '/' + `${event.target.id}`, {
-              method: 'PATCH',
-              headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                "likes": new_count
-              })
-            })
-          }
+    function increaseLikes(event) {
+      // debugger
+      let current_count = parseInt(event.target.parentElement.parentElement.children[2].innerText.split(" ")[0])
+          if(event.target.parentElement.parentElement.dataset.id === event.target.id) 
+              {
+                new_count = current_count+1
+                event.target.parentElement.previousElementSibling.innerText = `
+                    ${new_count} Likes
+                `
+                fetch(url + '/' + `${event.target.id}`, {
+                    method: 'PATCH',
+                    headers: {
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                      "likes": new_count
+                    })
+                  })
+              }
     }
 }
 
@@ -53,52 +62,42 @@ addToyBtn.addEventListener('click', showFormOnPage)
 
 function showFormOnPage(event) {
 
-  event.preventDefault();
-  const toyForm = event.target.parentElement.previousElementSibling
-  let addToy = false
+    event.preventDefault();
+    const toyForm = event.target.parentElement.previousElementSibling
+    let addToy = false
 
-// debugger
+  // debugger
 
-  if (toyForm.className === 'container') {
-      addToy = !addToy
-  }
-// debugger
-  if (addToy) {
-      toyForm.style.display = 'block';
-  } else {
-      toyForm.style.display = 'none';
-  }
+    if (toyForm.className === 'container') {
+          addToy = !addToy
+    }
+  // debugger
+    if (addToy) {
+          toyForm.style.display = 'block';
+    } else {
+          toyForm.style.display = 'none';
+    }
 }
 
-  const submitBtn = document.querySelector('.submit')
+const submitBtn = document.querySelector('.submit')
 
-  submitBtn.addEventListener('click', addToyToDatabase)
+submitBtn.addEventListener('click', addToyToDatabase)
 
-  function addToyToDatabase(event) {
+function addToyToDatabase(event) {
 // debugger
     fetch(url, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        "name": `${document.querySelectorAll('.input-text')[0].value}`,
-        "image": `${document.querySelectorAll('.input-text')[1].value}`,
-        "likes": 0
-      })
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "name": `${document.querySelectorAll('.input-text')[0].value}`,
+          "image": `${document.querySelectorAll('.input-text')[1].value}`,
+          "likes": 0
+        })
     })
-  }
-
-
-
-
-// a delay in finding method to complete this task (displaying the form when clicked.)
-// how do you do an event listener when nothing has a value and always returns null?
-
-
-
-
+}
 
 // // add the toys to the page
 // const parseJSON = resp => resp.json()
