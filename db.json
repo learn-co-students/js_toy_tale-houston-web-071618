@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 9
+      "likes": 13
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       "id": 4,
       "name": "Slinky Dog",
       "image": "https://www.freeiconspng.com/uploads/slinky-png-transparent-1.png",
-      "likes": 4
+      "likes": 10
     },
     {
       "id": 5,
@@ -46,37 +46,19 @@
       "id": 8,
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
-      "likes": -2
-    },
-    {
-      "name": "document.querySelectorAll('.input-text')[0].value",
-      "image": "document.querySelectorAll('.input-text')[1].value",
-      "likes": 0,
-      "id": 9
-    },
-    {
-      "name": "document.querySelectorAll('.input-text')[0].value",
-      "image": "document.querySelectorAll('.input-text')[1].value",
-      "likes": 1,
-      "id": 10
-    },
-    {
-      "name": "document.querySelectorAll('.input-text')[0].value",
-      "image": "document.querySelectorAll('.input-text')[1].value",
-      "likes": 1,
-      "id": 11
-    },
-    {
-      "name": "name",
-      "image": "https://cdn.shopify.com/s/files/1/0843/2781/products/derp_copy_large.png",
-      "likes": 1,
-      "id": 12
+      "likes": -1
     },
     {
       "name": "Derp",
       "image": "https://cdn.shopify.com/s/files/1/0843/2781/products/derp_copy_large.png",
-      "likes": 1,
+      "likes": 11,
       "id": 13
+    },
+    {
+      "name": "errtgrt",
+      "image": "tgrghrtyh",
+      "likes": 0,
+      "id": 14
     }
   ]
 }
