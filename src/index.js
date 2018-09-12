@@ -42,6 +42,17 @@ document.addEventListener('DOMContentLoaded',function(){
         likeLevel += 1
         clickedToy.children[2].innerText = `${likeLevel} Likes`
 
+        fetch(`http://localhost:3000/toys/${e.target.parentElement.id}`, {
+          method: 'PATCH',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            "likes":likeLevel
+          })
+
+
+        })//fetch PATCH
 
       }//if likes clcked
     })//toyCollectionEvent

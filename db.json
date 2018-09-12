@@ -10,7 +10,7 @@
       "id": 2,
       "name": "Buzz Lightyear",
       "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 8
+      "likes": 29
     },
     {
       "id": 3,
@@ -53,6 +53,12 @@
       "image": "https://vignette.wikia.nocookie.net/p__/images/8/88/Jessie_Toy_Story_3.png/revision/latest?cb=20161023024601&path-prefix=protagonist",
       "likes": 0,
       "id": 9
+    },
+    {
+      "name": "HUmzah",
+      "image": "https://i.ytimg.com/vi/O2ZshzUKKo0/maxresdefault.jpg",
+      "likes": 0,
+      "id": 10
     }
   ]
 }
