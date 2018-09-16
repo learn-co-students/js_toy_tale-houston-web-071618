@@ -78,7 +78,7 @@ function addNewToy() {
       },
       body: JSON.stringify({
        "name": e.target.name.value,  
-       "image": e.target.image.value, //need help on "target" or dataset, or data-id???
+       "image": e.target.image.value, 
        "likes": 0
       })
     })
@@ -87,18 +87,14 @@ function addNewToy() {
   })
 }
 
-
-
 // Conditionally increase the toy's like count
 // Send a patch request to the server at http://localhost:3000/toys/:id updating the number of likes that the specific toy has
 function addLikesToToy() {
   const likeBtn = document.querySelector(".like-btn")
   likeBtn.addEventListener('click', function(e) {
-    parseInt(document.getElementById("toy-total-likes-${toy.id}").innerText, 10) //how get id from innerHTML in fn above?
+    parseInt(document.getElementById("toy-total-likes-${toy.id}").innerText, 10) 
   })
 }
-
-
 
 fetchToys()
 addNewToy()
